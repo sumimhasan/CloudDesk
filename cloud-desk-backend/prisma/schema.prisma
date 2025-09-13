@@ -1,0 +1,64 @@
+// schema.prisma
+
+datasource db {
+  provider = "postgresql" // change if needed
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  userid    Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  joindate  DateTime @default(now())
+  isadmin   Boolean  @default(false)
+  members   Member[]
+  chats     ChatData[] @relation("UserChats", fields: [username], references: [senderUsername])
+}
+
+model Member {
+  id       Int    @id @default(autoincrement())
+  userid   Int
+  username String
+  iactive  Boolean @default(true)
+
+  user User @relation(fields: [userid], references: [userid])
+  tasks Task[]
+}
+
+model Task {
+  id       Int       @id @default(autoincrement())
+  title    String
+  assigne  Int       // member id
+  dueDate  DateTime
+  status   TaskStatus @default(PENDING)
+  priority TaskPriority @default(MEDIUM)
+
+  member Member @relation(fields: [assigne], references: [id])
+}
+
+model ChatData {
+  chatid         Int      @id @default(autoincrement())
+  senderUsername String
+  avatarFile     String?
+  message        String
+  isReply        Boolean  @default(false)
+  replied        Boolean  @default(false)
+
+  user User @relation("UserChats", fields: [senderUsername], references: [username])
+}
+
+enum TaskStatus {
+  PENDING
+  WORKING
+  DUE
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
