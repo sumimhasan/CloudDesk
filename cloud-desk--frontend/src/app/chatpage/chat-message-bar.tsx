@@ -56,12 +56,12 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
           </div>
 
           {/* Reply Button on right */}
-          <div
+          {/* <div
             className={replyButtonClass}
             onClick={() => onReply && onReply(id)}
           >
             <FaReply className="w-3 h-3" /> Reply
-          </div>
+          </div> */}
         </div>
 
         {/* Replied-to UI */}

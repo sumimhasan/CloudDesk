@@ -9,13 +9,27 @@ import {
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
 
+// If using React Router
+// import { useNavigate } from "react-router-dom";
+
 const Navbar: React.FC = () => {
   const links = [
-    { name: "My Office", icon: faBuilding },
-    { name: "Chat", icon: faComments },
-    { name: "Worktable", icon: faTable },
-    { name: "Todays Task", icon: faCalendarDay },
+    { name: "My Office", icon: faBuilding, path: "/myoffice" },
+    { name: "Chat", icon: faComments, path: "/chatpage" },
+    { name: "Worktable", icon: faTable, path: "/worktable" },
+    { name: "Today's Task", icon: faCalendarDay, path: "/today" },
   ];
+
+  // Optional: For React Router navigation
+  // const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    // With React Router:
+    // navigate(path);
+
+    // Or with plain JavaScript:
+    window.location.href = path;
+  };
 
   // Tailwind class variables
   const navClass = "fixed hidden md:flex items-center justify-between w-full h-16 px-6 bg-gray-700 shadow z-10";
@@ -30,10 +44,15 @@ const Navbar: React.FC = () => {
       {/* Left: Logo */}
       <div className={logoClass}>CloudDesk</div>
 
-      {/* Center: Sidebar Icons */}
+      {/* Center: Sidebar Icons with Links */}
       <div className="flex space-x-4">
         {links.map((link, i) => (
-          <div key={i} className={iconWrapperClass} title={link.name}>
+          <div 
+            key={i} 
+            className={iconWrapperClass} 
+            title={link.name}
+            onClick={() => handleNavigation(link.path)}
+          >
             <FontAwesomeIcon icon={link.icon} className={iconClass} />
           </div>
         ))}
@@ -41,7 +60,7 @@ const Navbar: React.FC = () => {
 
       {/* Right: Notification Icon */}
       <div className={rightIconsClass}>
-        <FontAwesomeIcon icon={faBell} className={bellIconClass} />
+        {/* <FontAwesomeIcon icon={faBell} className={bellIconClass} /> */}
       </div>
     </nav>
   );
