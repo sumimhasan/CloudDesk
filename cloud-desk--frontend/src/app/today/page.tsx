@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Navbar from '@/global-components/navbar';
 import Sidebar from '@/global-components/sidebar';

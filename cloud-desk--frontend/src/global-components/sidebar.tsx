@@ -15,7 +15,6 @@ const Sidebar: React.FC = () => {
   const links = [
     { name: "My Office", icon: faBuilding },
     { name: "Chat", icon: faComments },
-    { name: "Direct Message", icon: faEnvelope },
     { name: "Worktable", icon: faTable },
     { name: "Todays Task", icon: faCalendarDay },
   ];

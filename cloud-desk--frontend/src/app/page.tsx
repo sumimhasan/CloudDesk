@@ -1,9 +1,9 @@
-import Image from "next/image";
+// app/page.tsx
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div>
+  // Redirect to /myoffice immediately on the server
+  redirect("/myoffice");
 
-    </div>
-  );
+  return <div>Redirecting...</div>; // Optional, won't be visible
 }

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Navbar from '@/global-components/navbar';
 import Sidebar from '@/global-components/sidebar';
@@ -10,7 +11,7 @@ const dummyMembers = [
   { id: 4, name: "Diana Prince", avatarUrl: "https://i.pravatar.cc/150?img=4", isActive: false },
   { id: 5, name: "Ethan Hunt", avatarUrl: "https://i.pravatar.cc/150?img=5", isActive: true },
 ];
-export default function Test() {
+export default function FilesPage() {
   return (
     <>
       <Navbar />
