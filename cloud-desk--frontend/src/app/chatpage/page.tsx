@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Navbar from '@/global-components/navbar';
 import Sidebar from '@/global-components/sidebar';
@@ -16,7 +17,7 @@ export default function TodaytaskPage() {
   return (
     <>
       <Navbar />
-      <div className="flex h-screen">
+      <div className="pt-16 flex h-screen">
 
         {/* Left Sidebar */}
         <div className="w-64">
@@ -24,7 +25,7 @@ export default function TodaytaskPage() {
         </div>
 
         {/* Main Area */}
-        <div className="flex-1 flex flex-col bg-gray-900 p-4 pt-16">
+        <div className="flex-1 flex flex-col bg-gray-900 ">
           <ChatPageContainer />
         </div>
 

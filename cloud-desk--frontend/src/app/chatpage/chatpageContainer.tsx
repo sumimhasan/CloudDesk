@@ -2,6 +2,8 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import ChatMessage from "./chat-message-bar"; // adjust path if needed
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane} from "@fortawesome/free-solid-svg-icons";
 
 const dummyMessages = [
   {
@@ -130,9 +132,9 @@ const ChatPageContainer: React.FC = () => {
         />
         <button
           onClick={handleSend}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-semibold"
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold"
         >
-          Send
+          <FontAwesomeIcon icon={faPaperPlane} size="lg" />
         </button>
       </div>
     </div>
