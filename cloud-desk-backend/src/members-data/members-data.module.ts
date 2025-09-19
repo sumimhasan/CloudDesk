@@ -1,9 +1,12 @@
+// src/member/member.module.ts
 import { Module } from '@nestjs/common';
-import { MembersDataController } from './members-data.controller';
-import { MembersDataService } from './members-data.service';
+import { MemberService } from './member.service';
+import { MemberController } from './member.controller';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
-  controllers: [MembersDataController],
-  providers: [MembersDataService]
+  controllers: [MemberController],
+  providers: [MemberService, PrismaService],
+  exports: [MemberService],
 })
-export class MembersDataModule {}
+export class MemberModule {}
