@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { PrismaService } from './prisma/prisma.service';
 import { AdminSetupModule } from './admin-setup/admin-setup.module';
 import { ChatdataModule } from './chatdata/chatdata.module';
-import { ChatruntimeModule } from './chatruntime/chatruntime.module';
+import { ChatruntimeModule } from './chatruntime/chat.module';
 import { FilesModule } from './files/files.module';
 import { LoginJoinModule } from './login-join/login-join.module';
 import { MembersDataModule } from './members-data/members-data.module';
