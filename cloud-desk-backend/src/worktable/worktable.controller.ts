@@ -8,7 +8,7 @@ import {
   HttpCode,
   Query,
 } from '@nestjs/common';
-import { TaskService } from './task.service';
+import { TaskService } from './worktable.service';
 
 @Controller('tasks')
 export class TaskController {

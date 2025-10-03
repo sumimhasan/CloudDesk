@@ -10,7 +10,7 @@ import {
   HttpStatus,
   HttpCode,
 } from '@nestjs/common';
-import { MemberService } from './member.service';
+import { MemberService } from './members-data.service';
 import { Member } from '@prisma/client';
 
 @Controller('members')

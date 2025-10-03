@@ -9,9 +9,9 @@ export class MemberService {
 
   async findAll(): Promise<Member[]> {
     return this.prisma.member.findMany({
-      // ❌ Do NOT include user (private)
+      //  Do NOT include user (private)
       include: {
-        tasks: true, // ✅ assuming tasks are public — remove if not
+        tasks: true, //  assuming tasks are public — remove if not
       },
     });
   }
@@ -20,7 +20,7 @@ export class MemberService {
     const member = await this.prisma.member.findUnique({
       where: { id },
       include: {
-        tasks: true, // ✅ public
+        tasks: true, //  public
       },
     });
 

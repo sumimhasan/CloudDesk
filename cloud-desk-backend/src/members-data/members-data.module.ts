@@ -1,7 +1,7 @@
 // src/member/member.module.ts
 import { Module } from '@nestjs/common';
-import { MemberService } from './member.service';
-import { MemberController } from './member.controller';
+import { MemberService } from './members-data.service';
+import { MemberController } from './members-data.controller';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Module({

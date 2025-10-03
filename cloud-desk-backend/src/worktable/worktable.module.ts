@@ -1,12 +1,12 @@
 // src/task/task.module.ts
 import { Module } from '@nestjs/common';
-import worktableController from './worktable.controller';
-import worktableService from './worktable.service';
+import  {TaskController} from './worktable.controller';
+import {TaskService} from './worktable.service';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
-  controllers: [worktableController],
-  providers: [worktableService, PrismaService],
-  exports: [worktableService],
+  controllers: [TaskController],
+  providers: [TaskService, PrismaService],
+  exports: [TaskService],
 })
 export class TaskModule {}

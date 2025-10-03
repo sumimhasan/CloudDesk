@@ -1,7 +1,7 @@
 // src/todays-task/todays-task.service.ts
 import { Injectable } from '@nestjs/common';
 import { TaskService } from '../worktable/worktable.service';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 @Injectable()
 export class TodaysTaskService {
