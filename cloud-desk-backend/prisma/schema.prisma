@@ -10,34 +10,35 @@ generator client {
 }
 
 model User {
-  userid    Int      @id @default(autoincrement())
-  username  String   @unique
+  userid    Int        @id @default(autoincrement())
+  username  String     @unique
   password  String
-  joindate  DateTime @default(now())
-  isadmin   Boolean  @default(false)
+  joindate  DateTime   @default(now())
+  isadmin   Boolean    @default(false)
+
   members   Member[]
-  chats     ChatData[] @relation("UserChats", fields: [username], references: [senderUsername])
+  chats     ChatData[] @relation("UserChats")   // ✅ no fields/references here
 }
 
 model Member {
-  id       Int    @id @default(autoincrement())
+  id       Int     @id @default(autoincrement())
   userid   Int
   username String
   iactive  Boolean @default(true)
 
-  user User @relation(fields: [userid], references: [userid])
+  user  User  @relation(fields: [userid], references: [userid])  // ✅ FK stored here
   tasks Task[]
 }
 
 model Task {
-  id       Int       @id @default(autoincrement())
+  id       Int          @id @default(autoincrement())
   title    String
-  assigne  Int       // member id
+  assigne  Int          // member id
   dueDate  DateTime
-  status   TaskStatus @default(PENDING)
+  status   TaskStatus   @default(PENDING)
   priority TaskPriority @default(MEDIUM)
 
-  member Member @relation(fields: [assigne], references: [id])
+  member Member @relation(fields: [assigne], references: [id])  // ✅ FK stored here
 }
 
 model ChatData {
@@ -48,7 +49,16 @@ model ChatData {
   isReply        Boolean  @default(false)
   replied        Boolean  @default(false)
 
-  user User @relation("UserChats", fields: [senderUsername], references: [username])
+  user User @relation("UserChats", fields: [senderUsername], references: [username])  // ✅ FK side
+}
+
+model TeamData {
+  id              Int      @id @default(autoincrement())
+  teamImageUrl    String
+  teamName        String   @unique
+  teamInfo        String?
+  recentActivities Json?   // structured JSON array/object
+  recentDocs      Json?    // structured JSON array/object
 }
 
 enum TaskStatus {
